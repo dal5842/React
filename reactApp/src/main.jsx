@@ -1,13 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+// src/main.jsx
+import React from "react";
+import { createRoot } from "react-dom/client";
 import { HashRouter } from "react-router-dom";
-import './index.css'
-import App from './App.jsx'
+import App from "./App.jsx";
+import "./index.css";  // only if you still use global CSS, otherwise omit
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-      <HashRouter basename="/react-taxidermy-enhanced/">
-          <App />
-      </HashRouter>
-  </StrictMode>,
-)
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+    <React.StrictMode>
+        <HashRouter basename="/">
+            <App />
+        </HashRouter>
+    </React.StrictMode>
+);
