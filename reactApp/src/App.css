@@ -44,11 +44,31 @@ body {
     margin-bottom: 0.5em;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    margin-top: 1em;
+.gallery-page {
+    padding: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-6px);
+}
+
+.gallery-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
 }
 
 .gallery img {
@@ -70,4 +90,60 @@ a {
 img {
     max-width: 100%;
     display: block;
+}
+.resume-page {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.resume-section {
+    margin-bottom: 2.5rem;
+}
+
+.resume-item {
+    margin-bottom: 1.5rem;
+}
+
+.resume-dates {
+    font-style: italic;
+}
+
+.skills-list {
+    columns: 2;
+    list-style-type: disc;
+}
+.home-page {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+.home-highlights ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+.about-page {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.about-section {
+    margin-bottom: 2rem;
+}
+
+.about-section ul {
+    list-style: disc;
+    padding-left: 1.5rem;
 }

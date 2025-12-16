@@ -1,31 +1,62 @@
-import React from "react";
-
-const galleryItems = [
-    { src: "https://placebear.com/600/400", alt: "Bear mount", caption: "Majestic Bear" },
-    { src: "https://placekitten.com/600/400", alt: "Small mammal mount", caption: "Feline Mount" },
-    { src: "https://placebeard.it/600x400", alt: "Custom art mount", caption: "Custom Mount" }
-    // Add more items here as needed
-];
-
-export default function Gallery() {
+function Home() {
     return (
-        <section>
-            <h2>Gallery of Works</h2>
-            <p>Explore our hand-crafted displays, from avian mounts to detailed mammal recreations.</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "1em", marginTop: "1em" }}>
-                {galleryItems.map((item, idx) => (
-                    <figure key={idx} style={{ margin: 0 }}>
-                        <img
-                            src={item.src}
-                            alt={item.alt}
-                            style={{ borderRadius: "10px", width: "300px", height: "200px", objectFit: "cover" }}
-                        />
-                        <figcaption style={{ textAlign: "center", marginTop: "0.5em", color: "inherit" }}>
-                            {item.caption}
-                        </figcaption>
-                    </figure>
-                ))}
-            </div>
+        <section className="home-page">
+            <header className="hero">
+                <h1>Dannika Love</h1>
+                <p className="hero-tagline">
+                    Digital Media, Arts, and Technology Student
+                    <br />
+                    Interactive Design • Web Development • Creative Technology
+                </p>
+            </header>
+
+            <article className="home-intro">
+                <h2>About This Site</h2>
+                <p>
+                    This multi-page React website serves as a digital portfolio showcasing
+                    projects developed throughout the semester. It highlights experimentation
+                    with interactive and animated technologies, thoughtful design practices,
+                    and accessibility-focused development.
+                </p>
+                <p>
+                    The site is designed for instructors, peers, and potential collaborators
+                    who are interested in how creative and technical practices intersect in
+                    digital media.
+                </p>
+            </article>
+
+            <article className="home-highlights">
+                <h2>Featured Work</h2>
+
+                <ul>
+                    <li>
+                        <strong>Tech Issue Resource Guide:</strong> A structured, accessible guide
+                        that introduces a contemporary digital technology issue to a
+                        non-technical audience using curated sources and clear explanations.
+                    </li>
+
+                    <li>
+                        <strong>Interactive & Animated Experiments:</strong> Projects exploring
+                        motion, SVG animation, and visual feedback using JavaScript and CSS.
+                    </li>
+
+                    <li>
+                        <strong>React Multi-Page Portfolio:</strong> This site itself is built
+                        with React and client-side routing, demonstrating component-based
+                        architecture and reusable design patterns.
+                    </li>
+                </ul>
+            </article>
+
+            <article className="home-navigation">
+                <h2>Explore the Site</h2>
+                <p>
+                    Use the navigation menu to explore project documentation, the resource
+                    guide, and professional materials.
+                </p>
+            </article>
         </section>
     );
 }
+
+export default Home;

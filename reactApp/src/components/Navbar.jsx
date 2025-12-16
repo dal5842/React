@@ -1,51 +1,29 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import ThemeToggle from "./ThemeToggle";
 
-const Nav = styled.nav`
-  background-color: ${({ theme }) => theme.navBg};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em 2em;
-`;
-
-const Title = styled.h1`
-  color: ${({ theme }) => theme.accent};
-  margin: 0;
-`;
-
-const NavList = styled.ul`
-  list-style: none;
-  display: flex;
-  gap: 1em;
-  margin: 0;
-  padding: 0;
-`;
-
-const StyledLink = styled(NavLink)`
-  color: ${({ theme }) => theme.text};
-  &.active {
-    font-weight: bold;
-    border-bottom: 2px solid ${({ theme }) => theme.accent};
-  }
-  &:hover {
-    color: ${({ theme }) => theme.accent};
-  }
-`;
-
-export default function Navbar() {
+function Navbar() {
     return (
-        <Nav>
-            <Title>Preserved Beauty Taxidermy</Title>
-            <NavList>
-                <li><StyledLink to="/" end>Home</StyledLink></li>
-                <li><StyledLink to="/gallery">Gallery</StyledLink></li>
-                <li><StyledLink to="/about">About</StyledLink></li>
-                <li><StyledLink to="/services">Services</StyledLink></li>
-            </NavList>
-            <ThemeToggle />
-        </Nav>
+        <nav className="main-nav" aria-label="Main navigation">
+            <ul>
+                <li>
+                    <NavLink to="/" end>Home</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/about">About</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/gallery">Gallery</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/resume">Resume</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/tech-guide">
+                        Tech Issue Guide (AI)
+                    </NavLink>
+                </li>
+            </ul>
+        </nav>
     );
 }
+
+export default Navbar;
