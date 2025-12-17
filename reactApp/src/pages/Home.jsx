@@ -79,6 +79,36 @@ function Home() {
                              alt="" /></a></p>
                 <a href="https://www.aihonestybadge.com" target="_blank" rel="noopener"><img src="https://www.aihonestybadge.com/badges/ai-assisted.svg" alt="AI Assisted Badge" style="max-width: 190px; height: auto;" /></a>
             </article>
+            <svg
+                viewBox="0 0 200 200"
+                width="200"
+                height="200"
+                aria-label="Animated test circle"
+            >
+                <defs>
+                    <style>{`
+            .pulse {
+              animation: pulse 2s infinite;
+              transform-origin: center;
+            }
+
+            @keyframes pulse {
+              0% { transform: scale(1); fill: #6272a4; }
+              50% { transform: scale(1.2); fill: #ff79c6; }
+              100% { transform: scale(1); fill: #6272a4; }
+            }
+          `}</style>
+                </defs>
+
+                <circle
+                    cx="100"
+                    cy="100"
+                    r="40"
+                    className="pulse"
+                />
+            </svg>
+
+            <p>If this circle pulses, SVG is working.</p>
         </section>
     );
 }
