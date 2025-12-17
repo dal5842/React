@@ -144,3 +144,4 @@ export const ClickDisplay = [
 
 export function sortDisplay(items) {
     return [...items].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+}

@@ -1,7 +1,7 @@
 // src/pages/Gallery.jsx
 import { useMemo, useState } from "react";
-import { ClickDisplay, sortDisplay } from "../data.js"; // adjust path if you put data.js elsewhere
-import "./gallery.css"; // create this (see section 3)
+import { ClickDisplay, sortDisplay } from "../data.js";
+import "./App.css";
 
 function List({ selectedKind }) {
     const filtered = useMemo(() => {
@@ -71,7 +71,6 @@ export default function Gallery() {
 
     return (
         <section className="gallery-page">
-            {/* Your page header (kept from your version) */}
             <header className="page-header">
                 <h1>Project Gallery</h1>
                 <p>
@@ -81,25 +80,11 @@ export default function Gallery() {
                 </p>
             </header>
 
-            {/* Professor-style selector & filtered list */}
             <Selector selectedKind={selectedKind} setSelectedKind={setSelectedKind} />
             <List selectedKind={selectedKind} />
 
-            {/* Optional: keep your descriptive static cards below */}
             <div className="gallery-grid static-section">
-                <article className="gallery-card">
-                    <h2>Interactive Tech Issue Guide</h2>
-                    <p>
-                        A multi-page resource guide exploring artificial intelligence,
-                        ethics, and digital culture. Built with structured navigation,
-                        visual hierarchy, and accessible design principles.
-                    </p>
-                    <ul>
-                        <li>Structured research presentation</li>
-                        <li>Semantic HTML and accessibility-first layout</li>
-                        <li>Designed for non-technical audiences</li>
-                    </ul>
-                    <a href="/tech-guide" className="gallery-link" aria-label="View/article>
+                <article className="gallery-card">    <h2>Animated SVG & CSS Experiments</h2>    <p>      Visual experiments using animated SVGs, hover effects, and CSS transitions to explore motion.    </p>    /tech-guide
 
         <article className="gallery-card">
           <h2>Animated SVG &amp; CSS Experiments</h2>
