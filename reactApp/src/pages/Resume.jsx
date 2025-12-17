@@ -1,6 +1,6 @@
 function Resume() {
     return (
-        <section className="resume-page">
+        <article className="resume-page">
             <header className="page-header">
                 <h1>Resume</h1>
                 <p>
@@ -17,14 +17,9 @@ function Resume() {
                     <br />
                     Bachelor of Arts — Digital Media, Arts, and Technology
                     <br />
-                    Expected Graduation: May 2027
+                    Expected Graduation: December 2026
                 </p>
 
-                <p>
-                    <strong>Karns City Jr./Sr. High School</strong>
-                    <br />
-                    Diploma — May 2023
-                </p>
             </article>
 
             <article className="resume-section">
@@ -68,14 +63,18 @@ function Resume() {
 
             <article className="resume-section">
                 <h2>Skills</h2>
-                <ul className="skills-list">
-                    <li>HTML, CSS, JavaScript</li>
-                    <li>React & GitHub Pages</li>
-                    <li>SVG & CSS Animation</li>
-                    <li>Digital Accessibility Principles</li>
-                    <li>Adobe Creative Suite</li>
-                    <li>Google & Microsoft Applications</li>
-                </ul>
+                    <ul className="skills-list">
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>React & GitHub Pages</li>
+                        <li>SVG & CSS Animation</li>
+                        <li>Digital Accessibility Principles</li>
+                        <li>Adobe Creative Suite</li>
+                        <li>Google & Microsoft Applications</li>
+                        <li><a href="https://github.com/dal5842/Portfolio">Link to GitHub Personal Repo Site</a></li>
+                        <li><a href="https://dal5842.github.io/Portfolio/">Personal Website Link</a></li>
+                        <li><a href="http://www.linkedin.com/in/dannikalove">LinkedIn Profile Link</a></li>
+                    </ul>
+
             </article>
 
             <article className="resume-section">
@@ -86,7 +85,7 @@ function Resume() {
                     Penn State Behrend
                 </p>
             </article>
-        </section>
+        </article>
     );
 }
 

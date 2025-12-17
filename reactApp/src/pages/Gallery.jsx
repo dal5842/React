@@ -67,8 +67,9 @@ function Selector({ selectedKind, setSelectedKind }) {
     );
 }
 
+
 export default function Gallery() {
-    const initialKind = ClickDisplay.length ? ClickDisplay[0].kind : "Gallery";
+    const initialKind = ClickDisplay.length ? ClickDisplay[0].kind : 'All';
     const [selectedKind, setSelectedKind] = useState(initialKind);
 
     return (

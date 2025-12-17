@@ -5,28 +5,25 @@
     --acc-2: #2563eb;        /* link accent (kept for accessibility) */
     --muted: #e2e6eb;        /* light border */
     --card-bg: #3b3b3b;      /* navbar/content blocks */
-    --card-light: #fff;      /* light cards used in gallery */
+    --card-light: #427dad;      /* light cards used in gallery */
     --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-pill: 999px;
 
-    /* Optional dark-mode overrides (matches HTML .dark-mode) */
     --bg-dark: #121212;
     --text-dark: #ffffff;
 }
 
-/* Body: adopt HTML serif + dark charcoal */
 body {
     margin: 0;
     padding: 0;
-    font-family: Georgia, serif; /* from HTML */
+    font-family: Georgia, serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
 }
 
-/* Dark mode hook retained from style.css */
 body.dark-mode {
     background-color: var(--bg-dark);
     color: var(--text-dark);
@@ -36,7 +33,7 @@ body.dark-mode {
    Navigation (map .navbar look onto .main-nav)
    ======================================= */
 .main-nav {
-    background-color: #3b3b3b;            /* HTML navbar bg */
+    background-color: #4765de;            /* HTML navbar bg */
     border-bottom: 2px solid #2d2d2d;     /* subtle divider */
 }
 
@@ -215,7 +212,7 @@ img:hover {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: #f6f7f9;
+    background: #30456e;
     border: 1px solid var(--muted);
     padding: 0.5rem 0.75rem;
     border-radius: var(--radius-pill);
