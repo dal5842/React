@@ -1,149 +1,357 @@
+
+/* =======================================
+   Global Theme (HTML-like) for React App
+   ======================================= */
+:root {
+    --bg: #2f2f2f;           /* HTML body bg */
+    --text: #f2f2f2;         /* HTML body text */
+    --acc-1: #c2a97a;        /* gold accent */
+    --acc-2: #2563eb;        /* link accent (kept for accessibility) */
+    --muted: #e2e6eb;        /* light border */
+    --card-bg: #3b3b3b;      /* navbar/content blocks */
+    --card-light: #fff;      /* light cards used in gallery */
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-pill: 999px;
+
+    /* Optional dark-mode overrides (matches HTML .dark-mode) */
+    --bg-dark: #121212;
+    --text-dark: #ffffff;
+}
+
+/* Body: adopt HTML serif + dark charcoal */
 body {
     margin: 0;
     padding: 0;
-    font-family: Georgia, serif;
-    background-color: #2f2f2f;
-    color: #f2f2f2;
+    font-family: Georgia, serif; /* from HTML */
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
 }
 
-.navbar {
-    background-color: #3b3b3b;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 2em;
+/* Dark mode hook retained from style.css */
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
 }
 
-.navbar h1 {
-    color: #c2a97a;
-    font-size: 1.5em;
+/* =======================================
+   Navigation (map .navbar look onto .main-nav)
+   ======================================= */
+.main-nav {
+    background-color: #3b3b3b;            /* HTML navbar bg */
+    border-bottom: 2px solid #2d2d2d;     /* subtle divider */
 }
 
-.navbar ul {
+.main-nav ul {
     list-style: none;
+    margin: 0;
+    padding: 1em 2em;                     /* from HTML spacing */
     display: flex;
+    flex-wrap: wrap;
     gap: 1em;
 }
 
-.navbar a {
+.main-nav a {
     text-decoration: none;
-    color: #f2f2f2;
-    transition: color 0.3s;
+    color: var(--text);                   /* HTML link color */
+    padding: 6px 10px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: color 0.3s, background 0.2s, transform 0.2s;
 }
 
-.navbar a:hover {
-    color: #c2a97a;
+.main-nav a:hover,
+.main-nav a:focus {
+    color: var(--acc-1);                  /* gold on hover as in HTML navbar */
+    transform: translateY(-1px);
 }
 
-.content {
-    padding: 2em;
+.main-nav .active {
+    background: #4a4a4a;                  /* active state using darker gray */
+    color: var(--acc-1);
 }
 
-.page h2 {
-    color: #c2a97a;
-    margin-bottom: 0.5em;
+/* For HTML-specific navbar title if needed */
+.navbar h1 {
+    color: var(--acc-1);
+    font-size: 1.5em;
 }
 
+/* =======================================
+   Headings & Sections
+   ======================================= */
+h1, h2, h3 {
+    font-weight: 700;
+    color: var(--text);
+}
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+
+.section-block {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 1.5rem 1.8rem;
+    background: #3b3b3b;                 /* align to HTML content blocks */
+    border-radius: var(--radius-md);
+    border: 1px solid #2d2d2d;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Page header accents (HTML style) */
+.page h2, .page-header h1 {
+    color: var(--acc-1);
+}
+
+/* =======================================
+   Links & Global elements
+   ======================================= */
+a {
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.25s ease;
+}
+a:hover, a:focus {
+    color: var(--acc-1);
+}
+
+/* Images: prefer fluid width from HTML but keep subtle hover */
+img {
+    max-width: 100%;          /* HTML behavior */
+    display: block;
+    border-radius: var(--radius-md);
+    transition: transform 0.25s ease;
+}
+img:hover {
+    transform: scale(1.02);
+}
+
+/* =======================================
+   Cards / Resources (resolve duplicate .resource-item)
+   ======================================= */
+.resource-item {
+    margin: 0.75rem 0;
+    padding: 1rem;
+    background: #3b3b3b;                 /* align with HTML blocks */
+    border-left: 4px solid var(--acc-1); /* gold accent border */
+    border-radius: var(--radius-sm);
+}
+
+/* Callouts (blend React style, HTML colors) */
+.guide-callout {
+    margin-top: 1.2rem;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    background: #4a4a4a;
+    border-left: 4px solid #06D6A0;      /* keep the green accent */
+}
+
+/* =======================================
+   Buttons (tone down to HTML palette)
+   ======================================= */
+.button {
+    font-family: Georgia, serif;          /* consistent typography */
+    border: 2px solid #5a5a5a;
+    padding: 0.8em 1.4em;
+    background-color: #4a4a4a;
+    color: var(--text);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s, color 0.2s;
+}
+.button:hover, .button:focus {
+    background-color: #5a5a5a;
+    color: var(--acc-1);
+    transform: scale(1.04);
+}
+
+/* =======================================
+   Hero / TOC (keep structure, recolor)
+   ======================================= */
+.guide-hero {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    background: linear-gradient(180deg, #333 0%, #2f2f2f 100%); /* shift to gray gradient */
+    border-bottom: 1px solid #2d2d2d;
+}
+.guide-hero .sub {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #d0d0d0;
+}
+
+.toc {
+    margin-top: 1.8rem;
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.toc a {
+    background: #3b3b3b;
+    color: var(--text);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: 0.2s;
+}
+.toc a:hover {
+    background: #4a4a4a;
+    color: var(--acc-1);
+}
+
+/* =======================================
+   Gallery (keep HTML detailed grid styles)
+   ======================================= */
 .gallery-page {
-    padding: 2rem;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+.selectionBar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin: 1rem 0;
+}
+.select-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f6f7f9;
+    border: 1px solid var(--muted);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+}
+.selection-text {
+    margin-bottom: 1rem;
+    color: #ddd;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
 }
-
 .gallery-card {
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.08);
-    transition: transform 0.3s ease;
+    background: var(--card-light);
+    color: #333;
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
 }
-
-.gallery-card:hover {
-    transform: translateY(-6px);
-}
-
-.gallery-link {
-    display: inline-block;
-    margin-top: 1rem;
-    font-weight: bold;
-}
-
-.gallery img {
-    border-radius: 10px;
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-}
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-a {
-    text-decoration: none;
-    color: #f2f2f2;
-}
-
-img {
-    max-width: 100%;
+.gallery-figure { margin: 0 0 0.75rem; }
+.gallery-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
     display: block;
 }
-.resume-page {
+.gallery-caption {
+    font-size: 0.95rem;
+    color: #333;
+}
+.gallery-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--acc-2);
+    text-decoration: none;
+}
+.gallery-link:hover { text-decoration: underline; }
+.empty-state {
+    grid-column: 1 / -1;
+    background: #fff8e1;
+    border: 1px solid #ffecb3;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* =======================================
+   Pages (Home, Resume, About)
+   ======================================= */
+.home-page, .resume-page, .about-page {
     max-width: 900px;
     margin: auto;
     padding: 2rem;
 }
+.hero { text-align: center; margin-bottom: 3rem; }
+.hero-tagline { font-size: 1.1rem; opacity: 0.85; }
+.home-highlights ul, .about-section ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+.resume-section, .about-section { margin-bottom: 2rem; }
+.resume-item { margin-bottom: 1.5rem; }
+.resume-dates { font-style: italic; }
+.skills-list { columns: 2; list-style-type: disc; }
 
-.resume-section {
-    margin-bottom: 2.5rem;
+/* =======================================
+   Quiz / Cards
+   ======================================= */
+.quiz-card {
+    background: #3b3b3b;
+    padding: 1.2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid #2d2d2d;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
-.resume-item {
-    margin-bottom: 1.5rem;
+/* =======================================
+   Fun SVGs & Background effects (recolored)
+   ======================================= */
+.svg-wrap { text-align: center; }
+svg text { font-family: Georgia, serif; }
+
+#pulse { transition: r 0.3s ease-out, opacity 0.3s ease-out; }
+
+#rocketSVG { cursor: pointer; transition: transform 1s ease; }
+#rocketSVG.launch { transform: translateY(-200px); }
+
+#colorCircle circle:hover { transform: scale(1.2); }
+
+/* Background bubbles: keep, but slightly soften */
+.bubble-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+.bubble {
+    position: absolute;
+    bottom: -120px;
+    width: 30px; height: 30px;
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 50%;
+    animation: bubbleMove 12s infinite ease-in;
+    filter: blur(1px);
+}
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 14s; }
+.bubble:nth-child(3) { width: 40px; height: 40px; left: 40%; animation-duration: 10s; }
+.bubble:nth-child(4) { width: 25px; height: 25px; left: 60%; animation-duration: 18s; }
+.bubble:nth-child(5) { width: 35px; height: 35px; left: 75%; animation-duration: 16s; }
+.bubble:nth-child(6) { width: 15px; height: 15px; left: 10%; animation-duration: 11s; }
+.bubble:nth-child(7) { width: 50px; height: 50px; left: 50%; animation-duration: 20s; }
+.bubble:nth-child(8) { width: 22px; height: 22px; left: 85%; animation-duration: 13s; }
+
+@keyframes bubbleMove {
+    0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.35; }
+    25%  { opacity: 0.6; }
+    50%  { transform: translateY(-50vh) translateX(20px) scale(1.2); opacity: 0.5; }
+    100% { transform: translateY(-110vh) translateX(-20px) scale(0.8); opacity: 0; }
 }
 
-.resume-dates {
-    font-style: italic;
-}
-
-.skills-list {
-    columns: 2;
-    list-style-type: disc;
-}
-.home-page {
-    padding: 2rem;
-    max-width: 900px;
-    margin: auto;
-}
-
-.hero {
+/* Footer (match HTML tone) */
+footer {
+    margin-top: 3rem;
+    padding: 1.2rem;
     text-align: center;
-    margin-bottom: 3rem;
-}
-
-.hero-tagline {
-    font-size: 1.1rem;
-    opacity: 0.85;
-}
-
-.home-highlights ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-}
-.about-page {
-    max-width: 900px;
-    margin: auto;
-    padding: 2rem;
-}
-
-.about-section {
-    margin-bottom: 2rem;
-}
-
-.about-section ul {
-    list-style: disc;
-    padding-left: 1.5rem;
+    background: #3b3b3b;
+    border-top: 2px solid #2d2d2d;
 }
